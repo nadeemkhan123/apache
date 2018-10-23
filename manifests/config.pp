@@ -4,11 +4,12 @@ class apache::config (
 	String $vhostsource = lookup({"name" => "apache.vhostsource", "default_value" => ""}),
 	String $vhostfile = lookup({"name" => "apache.vhostfile", "default_value" => ""})
 	) {
-	file { 'config-file;:
+	file { 'config-file':
 		path => $configfile,
 		ensure => file,
 		source => $configsource,
 	}
+
 	file { 'vhost-file':
 		path => $vhostfile,
 		ensure => file,
